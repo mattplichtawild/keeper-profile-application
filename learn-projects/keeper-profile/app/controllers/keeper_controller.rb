@@ -12,6 +12,7 @@ class ZookeeperController < ApplicationController
 
     get '/account/new' do
         #create new user
+        "Test"
         erb :'/keepers/new'
     end
 
