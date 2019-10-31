@@ -6,15 +6,15 @@ Notes for basic functionality:
 For Zookeepers (users)
 
     x-create account
-    x-login
-    x-logout
+    -login
+    -logout
     x-view account
-    x-edit account
+    -edit account
     -delete account
-    x-create animal
-    x-view animal profile
-    x-view animal index page
-    x-edit animal
+    -create animal
+    -view animal profile
+    -view animal index page 
+    -edit animal
     -delete animal
     -display validation failures
 
