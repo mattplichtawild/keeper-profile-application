@@ -19,17 +19,29 @@ class ZookeeperController < ApplicationController
 
     post '/account/new' do
         #send form info to zookeeper model to create new user
-        @user = Zookeeper.create(params[:user])
-
-        
+        #check that user doesn't already exist by matching email
+        #show user page once account is created
+        if !Zookeeper.find_by(email: params[:user][:email])
+            @user = Zookeeper.create(params[:user]) 
+            @user.id = session[user_id]
+        else
+            #raise error here and redirect to page with links to login or create page (have both options on one page?)
+        end
         redirect to "/account/#{@user.id}"
     end
 
     get '/account/:id' do
         #display user account/profile page
+        #check user has logged in
         binding.pry
-        @user = Zookeeper.find_by_id(params[:id])
+        
+        if session[user_id]
+            @user = Zookeeper.find_by_id(params[:id])
+            @user.id = session[user_id]
         erb :'/keepers/show'
+        else
+            redirect to :'/account/new'
+        end
     end
 
     get '/account/:id/animals' do
