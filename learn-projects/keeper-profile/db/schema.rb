@@ -13,11 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20191031043504) do
 
-  create_table "animals", force: :cascade do |t|
-    t.string "name"
-    t.string "species"
-    t.string "bio"
-  end
+# Could not dump table "animals" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "zookeepers", force: :cascade do |t|
     t.string "first_name"

@@ -1,7 +1,7 @@
 <div class="container">
-  <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
+  <header><img src="../public/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Welcome, <%= @user.first_name %>!</h2>
+    <h2>Welcome, <%= @user.first_name %><%= @user.last_name %>!</h2>
 
     <div class="content">
       <p>Write some bullshit here.</p>
@@ -9,7 +9,6 @@
     
     <div class="sidebar">
       <!-- use sidebar to display first 3 animals in keeper's collection -->
-    <!-- This doesn't work - @user.animals.exists returns ActiveRecord::StatementInvalid: SQLite3::SQLException: no such column: animals.zookeeper_id: SELECT "animals".* FROM "animals" WHERE "animals"."zookeeper_id" = ?
     <% if @user.animals.exists? %>
         <h3><a href="/animals/index.erb" target="_blank" >Animal Friends</a></h3>
             <% @animals = @user.animals %> 
@@ -20,7 +19,7 @@
         </ul>
     <% else %>
         <a href="/animals/new"><h3>Create some animal friends!</h3></a>
-    <% end %> -->
+    <% end %> 
         <a href="/animals/new"><h3>Create some animal friends!</h3></a>
     </div>
 
