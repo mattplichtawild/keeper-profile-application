@@ -9,13 +9,17 @@
     
     <div class="sidebar">
       <!-- use sidebar to display first 3 animals in keeper's collection -->
-      <h3><a href="/animals/index.erb" target="_blank" >Animal Friends</a></h3>
-        <% @animals = @user.animals %> <!-- check that this works -->
-      <ul>
-        <% @animals.each do |animal| %>
-        <li><b><%= animal.name %> -</b> <%= animal.species %></li>
-        <% end %>
-      </ul>
+    <% if @user.animals.exists? %>
+        <h3><a href="/animals/index.erb" target="_blank" >Animal Friends</a></h3>
+            <% @animals = @user.animals %> <!-- check that this works -->
+        <ul>
+            <% @animals.each do |animal| %>
+            <li><b><%= animal.name %> -</b> <%= animal.species %></li>
+            <% end %>
+        </ul>
+    <% else %>
+        <a href="/animals/new"><h3>Create some animal friends!</h3></a>
+    <% end %>
     </div>
 
   </div>
