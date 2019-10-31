@@ -1,0 +1,35 @@
+<div class="container">
+  <header><img src="/images/corneal-small.png" class="img-responsive main-image"></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Create an Account:</h2>
+
+    <div class="content">
+      <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
+      After you have created your account, you can add profiles for animals you work with.</p>
+    </div>
+    <br>
+    <div class="form" id="signup">
+        <form method="POST" action="/account/new">
+            <label for="user[first_name]">First Name:</label>
+            <input type="text" name="user[first_name]" id="first_name" required>
+            <label for="user[last_name]">Last Name:</label>
+            <input type="text" name="user[last_name]" id="last_name" required>
+            <label for="user[email]">Email:</label>
+            <input type="email" name="user[email]" id="email" required>
+            <label for="user[password]">Password:</label>
+            <input type="password" name="user[password]" id="password" required>
+            <input type="submit" value="Create Account">
+        </form>
+    </div>
+
+    <div class="sidebar">
+      <ul>
+        <li><b>How does it work?</b></li>
+        <li><b>Who is eligible?</b></li>
+        <li><b>Does it cost anything?</b></li>
+        <li><b>How many animals can I enroll?</b></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
