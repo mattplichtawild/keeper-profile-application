@@ -12,16 +12,23 @@ class ZookeeperController < ApplicationController
 
     get '/account/new' do
         #create new user
+
+        
         erb :'/keepers/new'
     end
 
     post '/account/new' do
         #send form info to zookeeper model to create new user
-        redirect to "/account/#{user.id}"
+        @user = Zookeeper.create(params[:user])
+
+        
+        redirect to "/account/#{@user.id}"
     end
 
     get '/account/:id' do
         #display user account/profile page
+        binding.pry
+        @user = Zookeeper.find_by_id(params[:id])
         erb :'/keepers/show'
     end
 
