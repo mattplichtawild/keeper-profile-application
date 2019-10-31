@@ -1,24 +1,22 @@
 <div class="container">
   <header><img src="/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Create an Account:</h2>
+    <h2>Create an animal profile:</h2>
 
     <div class="content">
       <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
       After you have created your account, you can add profiles for animals you work with.</p>
     </div>
     <br>
-    <div class="form" id="signup">
-        <form method="POST" action="/account/new">
-            <label for="user[first_name]">First Name:</label>
-            <input type="text" name="user[first_name]" id="first_name" required>
-            <label for="user[last_name]">Last Name:</label>
-            <input type="text" name="user[last_name]" id="last_name" required>
-            <label for="user[email]">Email:</label>
-            <input type="email" name="user[email]" id="email" required>
-            <label for="user[password]">Password:</label>
-            <input type="password" name="user[password]" id="password" required>
-            <input type="submit" value="Create Account">
+    <div class="form" id="create_animal">
+        <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
+            <label for="animal[name]">Animal Name:</label>
+            <input type="text" name="animal[name]" id="name" required>
+            <label for="animal[species]">Species:</label>
+            <input type="text" name="animal[species]" id="species" required>
+            <label for="animal[bio]">Tell us about your animal:</label>
+            <textarea form="create_animal" name="animal[bio]" id="bio"></textarea>
+            <input type="submit" value="Create Animal Profile">
         </form>
     </div>
 

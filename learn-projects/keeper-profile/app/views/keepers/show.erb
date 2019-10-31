@@ -1,7 +1,7 @@
 <div class="container">
   <header><img src="../public/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Welcome, <%= @user.first_name %><%= @user.last_name %>!</h2>
+    <h2>Welcome, <%= @user.first_name %> <%= @user.last_name %>!</h2>
 
     <div class="content">
       <p>Write some bullshit here.</p>
@@ -18,9 +18,8 @@
             <% end %>
         </ul>
     <% else %>
-        <a href="/animals/new"><h3>Create some animal friends!</h3></a>
+        <a href="/account/<%= @user.id %>/animals/new"><h3>Create some animal friends!</h3></a>
     <% end %> 
-        <a href="/animals/new"><h3>Create some animal friends!</h3></a>
     </div>
 
   </div>

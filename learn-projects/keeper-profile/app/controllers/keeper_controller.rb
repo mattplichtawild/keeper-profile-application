@@ -40,7 +40,7 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        if session[:id] == params[:id] #needs helper method?
+        if session[:id]  #needs helper method?
             @user = Zookeeper.find_by_id(params[:id])
             @user.id = session[:id]
             erb :'/keepers/show'
@@ -57,17 +57,29 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/animals/new' do
         #display form to create new animal
+        @user = Zookeeper.find_by_id(params[:id])
         erb :'/animals/new'
-    end
-
-    post '/account/:id/animals/new' do
-        #sends info from form to animal model to create new animal
-        redirect to "/account/#{user.id}/animals/#{animal.id}"
     end
 
     get '/account/:id/animals/:animal_id' do
         #display specific animal profile page
+        @user = Zookeeper.find_by_id(params[:id])
+        @animal = Animal.find_by_id(params[:animal_id])
         erb :'/animals/show'
+    end
+
+    get '/account/:id/animals/:animal_id/edit' do
+        @user = Zookeeper.find_by_id(params[:id])
+        @animal = Animal.find_by_id(params[:animal_id])
+        erb :'/animals/edit'
+    end
+
+    post '/account/:id/animals/new' do
+        #sends info from form to animal model to create new animal
+        @user = Zookeeper.find_by_id(params[:id])
+        @animal = Animal.create(params[:animal])
+        @user.animals << @animal 
+        redirect to "/account/#{@user.id}/animals/#{@animal.id}"
     end
 
     get '/account/:id/animals/:animal_id/edit' do
@@ -77,7 +89,19 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/edit' do
         #display edit form for user
+        @user = Zookeeper.find_by_id(params[:id])
         erb :'/keepers/edit'
+    end
+
+    get '/account/:id/logout' do
+        session.clear
+        redirect to '/keepers/logout'
+    end
+
+    get '/account/:id/delete' do
+        @user = Zookeeper.find_by_id(params[:id])
+        @user.delete
+        redirect to '/keepers/goodbye'
     end
 
 end
