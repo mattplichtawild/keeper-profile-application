@@ -23,7 +23,7 @@ class ZookeeperController < ApplicationController
         #show user page once account is created
         if !Zookeeper.find_by(email: params[:user][:email])
             @user = Zookeeper.create(params[:user]) 
-            @user.id = session[user_id]
+            session[:id] = @user.id
         else
             #raise error here and redirect to page with links to login or create page (have both options on one page?)
         end
@@ -33,13 +33,12 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        binding.pry
-        
-        if session[user_id]
+        if session[:id] #needs helper method?
             @user = Zookeeper.find_by_id(params[:id])
-            @user.id = session[user_id]
-        erb :'/keepers/show'
+            @user.id = session[:id]
+            erb :'/keepers/show'
         else
+            #add view with error message and links to either login or create account
             redirect to :'/account/new'
         end
     end
