@@ -2,18 +2,25 @@ class ZookeeperController < ApplicationController
 
     get '/login' do
         #sets user id as session user_id
+        
         erb :'/keepers/login'
+    end
+
+    post '/login' do
+        #find user in database, match by email and password
+        @user = Zookeeper.find_by(email: params[:user][:email], password_digest: params[:user][:password])
+        session[:id] = @user.id
+        redirect to "/account/#{@user.id}"
     end
 
     get '/logout' do
         #clears session hash
+        session.clear
         erb :'/keepers/logout'
     end
 
     get '/account/new' do
         #create new user
-
-        
         erb :'/keepers/new'
     end
 
@@ -33,7 +40,7 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        if session[:id] #needs helper method?
+        if session[:id] == params[:id] #needs helper method?
             @user = Zookeeper.find_by_id(params[:id])
             @user.id = session[:id]
             erb :'/keepers/show'
