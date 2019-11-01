@@ -45,8 +45,6 @@ class ZookeeperController < ApplicationController
         #check user has logged in
         if session[:id]  #needs helper method?
             @user = Zookeeper.find_by_id(params[:id])
-            @user.id = session[:id]
-            binding.pry
             erb :'/keepers/show'
         else
             #add view with error message and links to either login or create account
