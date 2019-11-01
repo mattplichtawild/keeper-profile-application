@@ -23,7 +23,7 @@ class ZookeeperController < ApplicationController
         erb :'/keepers/new'
     end
 
-    post '/account/new' do
+    post '/account' do
         #send form info to zookeeper model to create new user
         #check that user doesn't already exist by matching email
         #show user page once account is created
@@ -36,18 +36,31 @@ class ZookeeperController < ApplicationController
         redirect to "/account/#{@user.id}"
     end
 
+    patch '/account/:id' do
+        #edit account info with params sent from form
+        @user = Zookeeper.find_by_id(params[:id])
+        @user.update(params[:user])
+        redirect to "/account/#{@user.id}"
+    end
+
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
+        
         if session[:id]  #needs helper method?
+            
             @user = Zookeeper.find_by_id(params[:id])
+            
             @user.id = session[:id]
+            
             erb :'/keepers/show'
         else
             #add view with error message and links to either login or create account
             redirect to :'/account/new'
         end
     end
+
+    
 
     get '/account/:id/animals' do
         #display index of animals owned by user
