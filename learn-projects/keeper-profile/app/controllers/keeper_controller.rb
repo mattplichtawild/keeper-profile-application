@@ -71,6 +71,7 @@ class ZookeeperController < ApplicationController
 
     post '/account/:id/animals/new' do
         #sends info from form to animal model to create new animal
+        binding.pry
         @user = Zookeeper.find_by_id(params[:id])
         @animal = Animal.create(params[:animal])
         @user.animals << @animal 
