@@ -2,10 +2,7 @@ class ZookeeperController < ApplicationController
 
     post '/login' do
         #find user in database, match by email and password
-        #CURRENTLY BROKEN. AUTHENTICATE PASSWORD INSTEAD OF BELOW QUERY
-        
         @user = Zookeeper.find_by(email: params[:email])
-        
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id
             redirect to "/account/#{@user.id}"
@@ -48,19 +45,15 @@ class ZookeeperController < ApplicationController
         #check user has logged in
         
         if session[:id]  #needs helper method?
-            
             @user = Zookeeper.find_by_id(params[:id])
-            
             @user.id = session[:id]
-            
+            binding.pry
             erb :'/keepers/show'
         else
             #add view with error message and links to either login or create account
             redirect to :'/account/new'
         end
     end
-
-    
 
     get '/account/:id/animals' do
         #display index of animals owned by user
