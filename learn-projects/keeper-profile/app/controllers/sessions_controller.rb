@@ -23,21 +23,16 @@ class SessionsController < ApplicationController
         redirect to "/account/#{@user.id}"
     end
 
-    get '/logout' do
-        #clears session hash
-        session.clear
-        erb :'/keepers/logout'
-    end
-
-    get '/account/:id/logout' do
-        session.clear
-        erb :'/keepers/logout'
-    end
-
     get '/account/:id/delete' do
         Zookeeper.find_by_id(params[:id]).destroy
         session.clear
         redirect to '/keepers/goodbye'
     end
 
+    get '/logout' do
+        #clears session hash
+        session.clear
+        erb :'/'
+    end
+    
 end
