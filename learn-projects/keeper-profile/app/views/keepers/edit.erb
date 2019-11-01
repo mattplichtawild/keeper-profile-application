@@ -1,0 +1,38 @@
+<div class="container">
+  <header><img src="../public/images/corneal-small.png" class="img-responsive main-image"></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Update Account Info:</h2>
+
+    <div class="content">
+      <div class="form" id="edit_account">
+        <form method="POST" action="/account/<%= @user.id %>">
+            <input type="hidden" id="hidden" name="_method" value="patch">
+            <label for="user[first_name]">First Name:</label>
+            <input type="text" name="user[first_name]" id="first_name" value="<%= @user.first_name %>" required>
+            <label for="user[last_name]">Last Name:</label>
+            <input type="text" name="user[last_name]" id="last_name" value="<%= @user.last_name %>" required>
+            <label for="user[email]">Email:</label>
+            <input type="email" name="user[email]" id="email" value="<%= @user.email %>" required>
+            <label for="user[password]">Password:</label>
+            <input type="password" name="user[password]" id="password" placeholder="Re-enter Password" required>
+            <input type="submit" value="Update Account">
+        </form>
+    </div>
+    </div>
+    
+    <div class="sidebar">
+      <!-- use sidebar to display first 3 animals in keeper's collection -->
+    <% if @user.animals.exists? %>
+        <h3><a href="/account/<%= @user.id %>/animals" target="_blank" >Animal Friends</a></h3>
+            <% @animals = @user.animals %> 
+        <ul>
+            <% @animals.each do |animal| %>
+            <li><b><%= animal.name %> -</b> <%= animal.species %></li>
+            <% end %>
+        </ul>
+      <% end %>
+        <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
+    </div>
+
+  </div>
+</div>
