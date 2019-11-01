@@ -9,7 +9,7 @@ For Zookeepers (users)
     x-login
     x-logout
     x-view account
-    -edit account
+    x-edit account
     x-delete account
     x-create animal
     x-view animal profile

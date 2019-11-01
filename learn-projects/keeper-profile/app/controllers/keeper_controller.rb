@@ -43,7 +43,8 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        if session[:id]  #needs helper method?
+        binding.pry
+        if session[:id] == params[:id].to_i #needs helper method
             @user = Zookeeper.find_by_id(params[:id])
             erb :'/keepers/show'
         else

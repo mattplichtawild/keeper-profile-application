@@ -1,4 +1,4 @@
-class AnimalConroller < ApplicationController
+class AnimalController < ApplicationController
 
     get '/account/:id/animals' do
         #display index of animals owned by user

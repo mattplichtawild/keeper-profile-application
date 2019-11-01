@@ -11,7 +11,14 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     erb :welcome
-  
+  end
+
+  def current_user(session)
+    @user = User.find(session[:id])
+  end
+
+  def logged_in?(session)
+      !!session[:id]
   end
 
 end
