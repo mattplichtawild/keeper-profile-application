@@ -1,0 +1,25 @@
+<% @user.animals.each do |animal| %>
+    <div class="wrapper">
+        <div class="container">
+        <header><img src="/public/images/wildheart-logo-2019.png" class="img-responsive main-image"></header>
+        <div class="col-md-8 col-md-offset-2">
+            <h2><%= animal.name %></h2>
+
+            <div class="content">
+            <h3><b>Species:</b><%= animal.species %></h3>
+            </div>
+
+            <div class="sidebar" id="bio">
+            <h3>Bio:</h3>
+            <p><%= animal.bio %></p>
+            </div>
+
+        </div>
+        </div>
+
+        <div class="container">
+        <a href="/account/<%= @user.id %>" >RETURN TO ACCOUNT</a>
+
+        </div>
+    </div>
+<% end %>

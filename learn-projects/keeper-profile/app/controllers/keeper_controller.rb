@@ -46,6 +46,7 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/animals' do
         #display index of animals owned by user
+        @user = Zookeeper.find_by_id(params[:id])
         erb :'/animals/index'
     end
 
@@ -73,7 +74,6 @@ class ZookeeperController < ApplicationController
         @user = Zookeeper.find_by_id(params[:id])
         @animal = Animal.create(params[:animal])
         @user.animals << @animal 
-        binding.pry
         redirect to "/account/#{@user.id}/animals/#{@animal.id}"
     end
 
