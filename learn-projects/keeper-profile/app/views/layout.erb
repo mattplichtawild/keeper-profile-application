@@ -23,6 +23,7 @@
       <footer class="branding">
         <% if logged_in?(session) %>
           <div id="account_links">
+            <a href="/account/<%= @user.id %>">Home</a>
             <a href="/account/<%= @user.id %>/edit">Edit Account Info</a>
             <a href="/account/<%= @user.id %>/logout">Logout</a>
             <a href="/account/<%= @user.id %>/delete">Delete Account</a>
