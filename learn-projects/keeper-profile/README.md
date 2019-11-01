@@ -7,7 +7,7 @@ For Zookeepers (users)
 
     x-create account
     x-login
-    -logout
+    x-logout
     x-view account
     -edit account
     x-delete account

@@ -3,9 +3,13 @@ class ZookeeperController < ApplicationController
     post '/login' do
         #find user in database, match by email and password
         #CURRENTLY BROKEN. AUTHENTICATE PASSWORD INSTEAD OF BELOW QUERY
-        @user = Zookeeper.find_by(email: params[:user][:email], password_digest: params[:user][:password])
-        session[:id] = @user.id
-        redirect to "/account/#{@user.id}"
+        
+        @user = Zookeeper.find_by(email: params[:email])
+        
+        if @user && @user.authenticate(params[:password])
+            session[:id] = @user.id
+            redirect to "/account/#{@user.id}"
+        end
     end
 
     get '/logout' do
