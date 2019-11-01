@@ -77,6 +77,11 @@ class ZookeeperController < ApplicationController
         redirect to "/account/#{@user.id}/animals/#{@animal.id}"
     end
 
+    get '/account/:id/animals/:animal_id/delete' do
+        #delete the specified animal
+        redirect to "/account/#{@user.id}/animals"
+    end
+
     get '/account/:id/animals/:animal_id/edit' do
         #edit the specific animal
         erb :'/animals/edit'
