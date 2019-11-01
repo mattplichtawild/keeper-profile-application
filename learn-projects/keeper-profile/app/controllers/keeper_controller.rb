@@ -1,11 +1,5 @@
 class ZookeeperController < ApplicationController
 
-    get '/login' do
-        #sets user id as session user_id
-        
-        erb :'/keepers/login'
-    end
-
     post '/login' do
         #find user in database, match by email and password
         @user = Zookeeper.find_by(email: params[:user][:email], password_digest: params[:user][:password])
