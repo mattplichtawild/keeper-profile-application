@@ -73,6 +73,7 @@ class ZookeeperController < ApplicationController
         @user = Zookeeper.find_by_id(params[:id])
         @animal = Animal.create(params[:animal])
         @user.animals << @animal 
+        binding.pry
         redirect to "/account/#{@user.id}/animals/#{@animal.id}"
     end
 

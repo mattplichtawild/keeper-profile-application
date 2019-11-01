@@ -17,9 +17,8 @@
             <li><b><%= animal.name %> -</b> <%= animal.species %></li>
             <% end %>
         </ul>
-    <% else %>
-        <a href="/account/<%= @user.id %>/animals/new"><h3>Create some animal friends!</h3></a>
-    <% end %> 
+      <% end %>
+        <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
     </div>
 
   </div>
