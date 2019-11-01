@@ -1,5 +1,6 @@
 class AnimalController < ApplicationController
-
+    #routes that handle a user's animals are here
+    
     get '/account/:id/animals' do
         #display index of animals owned by user
         @user = Zookeeper.find_by_id(params[:id])
