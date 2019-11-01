@@ -1,5 +1,4 @@
 <div class="container">
-  <header><img src="../public/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Welcome, <%= @user.first_name %> <%= @user.last_name %>!</h2>
 
@@ -14,9 +13,9 @@
             <% @animals = @user.animals %> 
         <ul>
             <% @animals.each do |animal| %>
-            <li><b><%= animal.name %> -</b> <%= animal.species %></li>
+            <li><a href="/account/<%= @user.id %>/animals/<% animal.id %>"><b><%= animal.name %> -</b></a><%= animal.species %></li>
             <% end %>
         </ul>
-      <% end %>
-        <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
+    <% end %>
+    <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
 </div>
