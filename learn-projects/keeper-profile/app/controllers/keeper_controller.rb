@@ -71,7 +71,6 @@ class ZookeeperController < ApplicationController
 
     post '/account/:id/animals/new' do
         #sends info from form to animal model to create new animal
-        binding.pry
         @user = Zookeeper.find_by_id(params[:id])
         @animal = Animal.create(params[:animal])
         @user.animals << @animal 
@@ -80,6 +79,8 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/animals/:animal_id/delete' do
         #delete the specified animal
+        @user = Zookeeper.find_by_id(params[:id])
+        Animal.find(params[:animal_id]).destroy
         redirect to "/account/#{@user.id}/animals"
     end
 
