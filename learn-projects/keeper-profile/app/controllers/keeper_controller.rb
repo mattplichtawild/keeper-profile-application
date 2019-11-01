@@ -2,6 +2,7 @@ class ZookeeperController < ApplicationController
 
     post '/login' do
         #find user in database, match by email and password
+        #CURRENTLY BROKEN. AUTHENTICATE PASSWORD INSTEAD OF BELOW QUERY
         @user = Zookeeper.find_by(email: params[:user][:email], password_digest: params[:user][:password])
         session[:id] = @user.id
         redirect to "/account/#{@user.id}"
@@ -97,7 +98,7 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/logout' do
         session.clear
-        redirect to '/keepers/logout'
+        erb :'/keepers/logout'
     end
 
     get '/account/:id/delete' do

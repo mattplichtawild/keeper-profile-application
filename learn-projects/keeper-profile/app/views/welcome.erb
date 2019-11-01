@@ -16,15 +16,14 @@
 
     <div class="sidebar">
       <h3>Login:</h3>
-      <form>
+      <form method="POST" action="/login">
       <ul>
         <li><input type="email" name="email" placeholder="Email Address"></li>
         <li><input type="password" name="password" placeholder="Password"></li>
         <li><input type="submit" value="Login"></li>
-        <li></li>
-        <li><a href="/account/new"><i>CREATE AN ACCOUNT</i></a></li>
       </ul>
       </form>
+      <a href="/account/new"><i>CREATE AN ACCOUNT</i></a>
     </div>
 
   </div>
