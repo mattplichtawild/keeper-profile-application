@@ -10,7 +10,7 @@ For Zookeepers (users)
     -logout
     x-view account
     -edit account
-    -delete account
+    x-delete account
     x-create animal
     x-view animal profile
     x-view animal index page 

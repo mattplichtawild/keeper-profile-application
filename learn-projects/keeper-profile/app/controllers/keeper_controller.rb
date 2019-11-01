@@ -101,8 +101,7 @@ class ZookeeperController < ApplicationController
     end
 
     get '/account/:id/delete' do
-        @user = Zookeeper.find_by_id(params[:id])
-        @user.delete
+        Zookeeper.find_by_id(params[:id]).destroy
         redirect to '/keepers/goodbye'
     end
 
