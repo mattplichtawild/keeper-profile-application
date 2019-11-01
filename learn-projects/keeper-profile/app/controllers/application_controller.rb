@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   def current_user(session)
-    @user = User.find(session[:id])
+    @user = Zookeeper.find(session[:id])
   end
 
   def logged_in?(session)
