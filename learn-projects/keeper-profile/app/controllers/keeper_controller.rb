@@ -14,7 +14,7 @@ class ZookeeperController < ApplicationController
 
     patch '/account/:id' do
         #edit account info with params sent from form
-        @user = Zookeeper.find_by_id(params[:id])
+        set_user(session)
         @user.update(params[:user])
         redirect to "/account/#{@user.id}"
     end
@@ -22,19 +22,20 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        binding.pry
-        if session[:id] == params[:id].to_i #needs helper method
-            @user = Zookeeper.find_by_id(params[:id])
-            erb :'/keepers/show'
-        else
-            #add view with error message and links to either login or create account
-            redirect to :'/account/new'
-        end
+        set_user(session)
+        erb :'/keepers/show'
+
+        # if logged_in?(session) #needs helper method
+        #     set_user(session)
+        #     erb :'/keepers/show'
+        # else
+        #     #add view with error message and links to either login or create account
+        #     redirect to :'/account/new'
+        # end
     end
 
     get '/account/:id/edit' do
         #display edit form for user
-        @user = Zookeeper.find_by_id(params[:id])
         erb :'/keepers/edit'
     end
 

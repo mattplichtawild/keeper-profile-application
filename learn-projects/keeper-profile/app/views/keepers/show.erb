@@ -10,7 +10,7 @@
     <div class="sidebar">
       <!-- use sidebar to display first 3 animals in keeper's collection -->
     <% if @user.animals.exists? %>
-        <h3><a href="/account/<%= @user.id %>/animals" target="_blank" >Animal Friends</a></h3>
+        <h3><a href="/account/<%= @user.id %>/animals">Animal Friends</a></h3>
             <% @animals = @user.animals %> 
         <ul>
             <% @animals.each do |animal| %>
@@ -19,12 +19,4 @@
         </ul>
       <% end %>
         <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
-    </div>
-
-  </div>
-  <div id="account_links">
-    <a href="/account/<%= @user.id %>/edit">Edit Account Info</a>
-    <a href="/account/<%= @user.id %>/logout">Logout</a>
-    <a href="/account/<%= @user.id %>/delete">Delete Account</a>
-  </div>
 </div>

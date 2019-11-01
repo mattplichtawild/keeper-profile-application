@@ -1,7 +1,7 @@
 <div class="container">
   <header><img src="/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Create an animal profile:</h2>
+    <h2>Update animal profile:</h2>
 
     <div class="content">
       <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
@@ -9,14 +9,15 @@
     </div>
     <br>
     <div class="form" id="edit_animal">
-        <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
+        <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/<%= @animal.id %>">
+            <input type="hidden" id="hidden" name="_method" value="patch">
             <label for="animal[name]">Animal Name:</label>
             <input type="text" name="animal[name]" id="name" value="<%= @animal.id %>" required>
             <label for="animal[species]">Species:</label>
             <input type="text" name="animal[species]" id="species" value="<%= @animal.species %>" required>
             <label for="animal[bio]">Tell us about your animal:</label>
             <textarea name="animal[bio]" id="bio" value="<%= @animal.bio %>"></textarea>  
-            <input type="submit" value="update Animal Profile">
+            <input type="submit" value="Update Animal Profile">
         </form>
     </div>
 

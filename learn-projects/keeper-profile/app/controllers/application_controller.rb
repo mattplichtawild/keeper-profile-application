@@ -13,12 +13,22 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  def current_user(session)
+  def set_user(session)
     @user = Zookeeper.find(session[:id])
   end
 
+  def set_animal(params)
+    @animal = Animal.find(params[:animal_id])
+  end
+
+  def set_keeper_and_animal(params) 
+    #method might not be used
+    @user = Zookeeper.find(params[:id])
+    @animal = Animal.find(params[:animal_id])
+  end
+
   def logged_in?(session)
-      !!session[:id]
+    !!session[:id]
   end
 
 end

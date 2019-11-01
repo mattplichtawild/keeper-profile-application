@@ -15,10 +15,19 @@
   </head>
   <body>
     <div class="wrapper">
-
+      <% if logged_in?(session) %>
         <%= yield %>
-
+      <% else %>
+        <a href="/"><h1>Please login or create an account on the homepage.</h1></a>
+      <% end %>
       <footer class="branding">
+        <% if logged_in?(session) %>
+          <div id="account_links">
+            <a href="/account/<%= @user.id %>/edit">Edit Account Info</a>
+            <a href="/account/<%= @user.id %>/logout">Logout</a>
+            <a href="/account/<%= @user.id %>/delete">Delete Account</a>
+          </div>
+        <% end %>
         <small>&copy; 2019 <strong>WildHeart Foundation</strong></small>
       </footer>
     </div>
