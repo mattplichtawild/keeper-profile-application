@@ -1,6 +1,6 @@
 class AnimalController < ApplicationController
     #routes that handle a user's animals are here
-    
+
     get '/account/:id/animals' do
         #display index of animals owned by user
         @user = Zookeeper.find_by_id(params[:id])
@@ -22,7 +22,6 @@ class AnimalController < ApplicationController
 
     patch '/account/:id/animals/:animal_id' do
         #edits and updates the specific animal
-        binding.pry
         @user = Zookeeper.find_by_id(params[:id])
         @animal = Animal.find_by_id(params[:animal_id])
         @animal.update(params[:animal])
