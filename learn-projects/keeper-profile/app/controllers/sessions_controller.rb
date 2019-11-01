@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     #routes that alter session id are in this controller
-
+    
     post '/login' do
         #find user in database, match by email and password
         @user = Zookeeper.find_by(email: params[:email])
@@ -14,11 +14,11 @@ class SessionsController < ApplicationController
         #send form info to zookeeper model to create new user
         #check that user doesn't already exist by matching email
         #show user page once account is created
-        if !Zookeeper.find_by(email: params[:user][:email])
+        if Zookeeper.find_by(email: params[:email]).exists?
+            redirect to "/"
+        else !Zookeeper.find_by(email: params[:user][:email])
             @user = Zookeeper.create(params[:user]) 
             session[:id] = @user.id
-        else
-            #raise error here and redirect to page with links to login or create page (have both options on one page?)
         end
         redirect to "/account/#{@user.id}"
     end
