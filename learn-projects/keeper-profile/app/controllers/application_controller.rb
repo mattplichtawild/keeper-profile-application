@@ -21,6 +21,11 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  not_found do
+    status 404
+    erb :extinct
+  end
+
   def set_user(session)
     if logged_in?(session)
       @user = Zookeeper.find(session[:id])

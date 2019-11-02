@@ -36,7 +36,7 @@ class AnimalController < ApplicationController
         #sends info from form to animal model to create new animal
         set_user(session)
         @animal = Animal.create(params[:animal])
-        @user.animals << @animal 
+        @user.animals << @animal
         redirect to "/account/#{@user.id}/animals"
     end
 
