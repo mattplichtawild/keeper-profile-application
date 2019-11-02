@@ -2,9 +2,10 @@
     <div class="wrapper">
         <div class="container">
             <div class="col-md-8 col-md-offset-2">
-                <h2><a href="/account/<%= @user.id %>/animals/<% animal.id %>"><%= animal.name %></h2></a>
+                <h2><a href="/account/<%= @user.id %>/animals/<%= animal.id %>"><%= animal.name %></h2></a>
                 <div class="content">
-                <h3><b>Bio:</b><%= animal.bio %></h3>
+                <h3><b>Bio:</b></h3><br>
+                <p><%= animal.bio %></p>
                 </div>
 
                 <div class="sidebar" id="bio">
@@ -17,8 +18,8 @@
         </div>
 
         <div class="container">
-        <a href="/account/<%= @user.id %>/animals/<%= animal.id %>/delete">DELETE ANIMAL</a>
-        <a href="/account/<%= @user.id %>/animals/<%= animal.id %>/edit">EDIT ANIMAL</a>
+                <a href="/account/<%= @user.id %>/animals/<%= animal.id %>/delete">DELETE ANIMAL</a>
+                <a href="/account/<%= @user.id %>/animals/<%= animal.id %>/edit">EDIT ANIMAL</a>
         </div>
     </div>
 <% end %>
