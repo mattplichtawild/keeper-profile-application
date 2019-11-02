@@ -14,7 +14,7 @@
             <% @animals = @user.animals %> 
         <ul>
             <% @animals.each do |animal| %>
-            <li><a href="/account/<%= @user.id %>/animals/<% animal.id %>"><b><%= animal.name %> -</b></a><%= animal.species %></li>
+            <li><a href="/account/<%= @user.id %>/animals/<%= animal.id %>"><b><%= animal.name %> - </b></a><%= animal.species %></li>
             <% end %>
         </ul>
     <% end %>

@@ -3,7 +3,11 @@ class ZookeeperController < ApplicationController
 
     get '/account/new' do
         #create new user
-        erb :'/keepers/new'
+        if !logged_in?(session)
+            erb :'/keepers/new'
+        else
+            redirect to "/account/#{session[:id]}"
+        end
     end
 
     patch '/account/:id' do
