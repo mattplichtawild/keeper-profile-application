@@ -1,5 +1,5 @@
+<% if logged_in?(session) %>
 <div class="container">
-  
   <div class="col-md-8 col-md-offset-2">
     <h2>Create an animal profile:</h2>
 
@@ -21,3 +21,7 @@
     </div>
   </div>
 </div>
+<% else %>
+<h1>You must be logged into to view your account.</h1>
+<a href="/"><h2>Return home to login or create an account</h2></a>
+<% end %>
