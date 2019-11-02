@@ -4,30 +4,20 @@
     <h2>Create an animal profile:</h2>
 
     <div class="content">
-      <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
-      After you have created your account, you can add profiles for animals you work with.</p>
+      <p>We randomly select an animal to display on the landing page, along with a toy selected from a collection you choose.
+      Create more animals to increase the odds of receiving enrichment for an animal in your care!</p>
     </div>
     <br>
-    <div class="form" id="create_animal">
+    <div class="content" id="create_animal">
         <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
             <label for="animal[name]">Animal Name:</label>
-            <input type="text" name="animal[name]" id="name" required>
+            <input type="text" name="animal[name]" id="name" required><br>
             <label for="animal[species]">Species:</label>
-            <input type="text" name="animal[species]" id="species" required>
-            <label for="animal[bio]">Tell us about your animal:</label>
-            <textarea name="animal[bio]" id="bio"></textarea>  
+            <input type="text" name="animal[species]" id="species" required><br>
+            <label for="animal[bio]">Tell us about your animal:</label><br>
+            <textarea name="animal[bio]" id="bio" rows="5" cols="60" placeholder="Where did they come from? What's their personality like? Who's their favorite zookeeper and why is it you?"></textarea><br>  
             <input type="submit" value="Create Animal Profile">
         </form>
     </div>
-
-    <div class="sidebar">
-      <ul>
-        <li><b>How does it work?</b></li>
-        <li><b>Who is eligible?</b></li>
-        <li><b>Does it cost anything?</b></li>
-        <li><b>How many animals can I enroll?</b></li>
-      </ul>
-    </div>
-
   </div>
 </div>
