@@ -38,6 +38,7 @@ class ApplicationController < Sinatra::Base
 
   def set_user_and_animal(params) 
     set_user(session)
+    
     set_animal(params)
   end
 

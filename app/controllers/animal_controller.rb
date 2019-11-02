@@ -15,8 +15,13 @@ class AnimalController < ApplicationController
 
     get '/account/:id/animals/:animal_id' do
         #display specific animal profile page
+        #redirect to user's animal index if their animal collection does not include requested animal
         set_user_and_animal(params) 
-        erb :'/animals/show'
+        if @user.animals.include?(@animal)
+            erb :'/animals/show'
+        else
+            redirect to "/account/#{@user.id}/animals"
+        end
     end
 
     patch '/account/:id/animals/:animal_id' do
@@ -29,7 +34,11 @@ class AnimalController < ApplicationController
     get '/account/:id/animals/:animal_id/edit' do
         # @user = Zookeeper.find_by_id(params[:id])
         set_user_and_animal(params)
-        erb :'/animals/edit'
+        if @user.animals.include?(@animal)
+            erb :'/animals/edit'
+        else
+            redirect to "/account/#{@user.id}/animals"
+        end
     end
 
     post '/account/:id/animals/new' do
@@ -43,7 +52,9 @@ class AnimalController < ApplicationController
     get '/account/:id/animals/:animal_id/delete' do
         #delete the specified animal
         set_user_and_animal(params)
-        @animal.destroy
+        if @user.animals.include?(@animal)
+            @animal.destroy
+        end
         redirect to "/account/#{@user.id}/animals"
     end
 
