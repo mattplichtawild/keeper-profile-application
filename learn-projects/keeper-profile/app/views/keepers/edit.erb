@@ -2,7 +2,6 @@
   <header><img src="../public/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Update Account Info:</h2>
-
     <div class="content">
       <div class="form" id="edit_account">
         <form method="POST" action="/account/<%= @user.id %>">
@@ -19,7 +18,6 @@
         </form>
     </div>
     </div>
-    
     <div class="sidebar">
       <!-- use sidebar to display first 3 animals in keeper's collection -->
     <% if @user.animals.exists? %>
@@ -33,6 +31,5 @@
       <% end %>
         <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
     </div>
-
   </div>
 </div>

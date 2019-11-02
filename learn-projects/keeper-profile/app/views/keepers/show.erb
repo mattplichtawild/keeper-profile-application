@@ -1,21 +1,19 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
     <h2>Welcome, <%= @user.first_name %> <%= @user.last_name %>!</h2>
-
     <div class="content">
       <p>Write some bullshit here.</p>
       <p>Probably list of previously received toys and who donated them.</p>
     </div>
-    
     <div class="sidebar">
       <!-- use sidebar to display first 3 animals in keeper's collection -->
     <% if @user.animals.exists? %>
         <h3><a href="/account/<%= @user.id %>/animals">Animal Friends</a></h3>
-            <% @animals = @user.animals %> 
+        <% @animals = @user.animals %> 
         <ul>
-            <% @animals.each do |animal| %>
+          <% @animals.each do |animal| %>
             <li><a href="/account/<%= @user.id %>/animals/<%= animal.id %>"><b><%= animal.name %> - </b></a><%= animal.species %></li>
-            <% end %>
+          <% end %>
         </ul>
     <% end %>
     <a href="/account/<%= @user.id %>/animals/new">Create some animal friends!</a>
