@@ -1,27 +1,25 @@
 <% if logged_in?(session) %>
-<div class="container">
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Update animal profile:</h2>
-
-    <div class="content">
-      <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
-      After you have created your account, you can add profiles for animals you work with.</p>
-    </div>
-    <br>
-    <div class="content" id="edit_animal">
-        <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/<%= @animal.id %>">
-            <input type="hidden" id="hidden" name="_method" value="patch">
-            <label for="animal[name]">Animal Name:</label>
-            <input type="text" name="animal[name]" id="name" value="<%= @animal.name %>" required><br>
-            <label for="animal[species]">Species:</label>
-            <input type="text" name="animal[species]" id="species" value="<%= @animal.species %>" required><br>
-            <label for="animal[bio]">Tell us about your animal:</label><br>
-            <textarea name="animal[bio]" id="bio" rows="5" cols="60" value="<%= @animal.bio %>"></textarea><br>
-            <input type="submit" value="Update Animal Profile">
-        </form>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Update animal profile:</h2>
+      <div class="content">
+        <p>Start receiving toys and enrichment for animals at your zoo by creating an account!
+        After you have created your account, you can add profiles for animals you work with.</p>
+      </div><br>
+      <div class="content" id="edit_animal">
+          <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/<%= @animal.id %>">
+              <input type="hidden" id="hidden" name="_method" value="patch">
+              <label for="animal[name]">Animal Name:</label>
+              <input type="text" name="animal[name]" id="name" value="<%= @animal.name %>" required><br>
+              <label for="animal[species]">Species:</label>
+              <input type="text" name="animal[species]" id="species" value="<%= @animal.species %>" required><br>
+              <label for="animal[bio]">Tell us about your animal:</label><br>
+              <textarea name="animal[bio]" id="bio" rows="5" cols="60" value="<%= @animal.bio %>"></textarea><br>
+              <input type="submit" value="Update Animal Profile">
+          </form>
+      </div>
     </div>
   </div>
-</div>
 <% else %>
   <h1>You must be logged into to view your account.</h1>
   <a href="/"><h2>Return home to login or create an account</h2></a>

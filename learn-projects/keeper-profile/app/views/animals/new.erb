@@ -1,27 +1,27 @@
 <% if logged_in?(session) %>
-<div class="container">
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Create an animal profile:</h2>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Create an animal profile:</h2>
 
-    <div class="content">
-      <p>We randomly select an animal to display on the landing page, along with a toy selected from a collection you choose.
-      Create more animals to increase the odds of receiving enrichment for an animal in your care!</p>
-    </div>
-    <br>
-    <div class="content" id="create_animal">
-        <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
-            <label for="animal[name]">Animal Name:</label>
-            <input type="text" name="animal[name]" id="name" required><br>
-            <label for="animal[species]">Species:</label>
-            <input type="text" name="animal[species]" id="species" required><br>
-            <label for="animal[bio]">Tell us about your animal:</label><br>
-            <textarea name="animal[bio]" id="bio" rows="5" cols="60" placeholder="Where did they come from? What's their personality like? Who's their favorite zookeeper and why is it you?"></textarea><br>  
-            <input type="submit" value="Create Animal Profile">
-        </form>
+      <div class="content">
+        <p>We randomly select an animal to display on the landing page, along with a toy selected from a collection you choose.
+        Create more animals to increase the odds of receiving enrichment for an animal in your care!</p>
+      </div>
+      <br>
+      <div class="content" id="create_animal">
+          <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
+              <label for="animal[name]">Animal Name:</label>
+              <input type="text" name="animal[name]" id="name" required><br>
+              <label for="animal[species]">Species:</label>
+              <input type="text" name="animal[species]" id="species" required><br>
+              <label for="animal[bio]">Tell us about your animal:</label><br>
+              <textarea name="animal[bio]" id="bio" rows="5" cols="60" placeholder="Where did they come from? What's their personality like? Who's their favorite zookeeper and why is it you?"></textarea><br>  
+              <input type="submit" value="Create Animal Profile">
+          </form>
+      </div>
     </div>
   </div>
-</div>
 <% else %>
-<h1>You must be logged into to view your account.</h1>
-<a href="/"><h2>Return home to login or create an account</h2></a>
+  <h1>You must be logged into to view your account.</h1>
+  <a href="/"><h2>Return home to login or create an account</h2></a>
 <% end %>

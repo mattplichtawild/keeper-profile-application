@@ -1,29 +1,25 @@
 <% if logged_in?(session) %>
-<div class="container">
-  <div class="col-md-8 col-md-offset-2">
-    <h2><%= @animal.name %></h2>
-
-    <div class="content">
-      <h3><b>Bio:</b></h3>
-        <p><%= @animal.bio %></p>
-      <h3>Enrichment Received:</h3>
-        <p>List of toys that have been donated to this animal will probably go here.</p>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h2><%= @animal.name %></h2>
+      <div class="content">
+        <h3><b>Bio:</b></h3>
+          <p><%= @animal.bio %></p>
+        <h3>Enrichment Received:</h3>
+          <p>List of toys that have been donated to this animal will probably go here.</p>
+      </div>
+      <div class="sidebar" id="bio">
+        <h3>Species:</h3>
+        <p><%= @animal.species %></p>
+      </div>
     </div>
-
-    <div class="sidebar" id="bio">
-      <h3>Species:</h3>
-      <p><%= @animal.species %></p>
-    </div>
-
   </div>
-</div>
-
 <div class="content">
   <a href="/account/<%= @user.id %>" >RETURN TO ACCOUNT</a><br>
   <a href="/account/<%= @user.id %>/animals/<%= @animal.id %>/edit">EDIT ANIMAL</a><br>
   <a href="/account/<%= @user.id %>/animals/<%= @animal.id %>/delete">DELETE ANIMAL</a>
 </div>
 <% else %>
-<h1>You must be logged into to view your account.</h1>
-<a href="/"><h2>Return home to login or create an account</h2></a>
+  <h1>You must be logged into to view your account.</h1>
+  <a href="/"><h2>Return home to login or create an account</h2></a>
 <% end %>
