@@ -14,9 +14,9 @@ class SessionsController < ApplicationController
         #send form info to zookeeper model to create new user
         #check that user doesn't already exist by matching email
         #show user page once account is created
-        if Zookeeper.find_by(email: params[:email]).exists?
+        if Zookeeper.find_by(email: params[:email])
             redirect to "/"
-        else !Zookeeper.find_by(email: params[:user][:email])
+        else
             @user = Zookeeper.create(params[:user]) 
             session[:id] = @user.id
         end
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
     get '/logout' do
         #clears session hash
         session.clear
-        erb :'/'
+        redirect to '/'
     end
-    
+
 end
