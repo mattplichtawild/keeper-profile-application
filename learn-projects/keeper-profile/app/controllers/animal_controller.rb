@@ -28,8 +28,9 @@ class AnimalController < ApplicationController
     end
 
     get '/account/:id/animals/:animal_id/edit' do
-        @user = Zookeeper.find_by_id(params[:id])
-        @animal = Animal.find_by_id(params[:animal_id])
+        # @user = Zookeeper.find_by_id(params[:id])
+        # @animal = Animal.find_by_id(params[:animal_id]) 
+        set_user_and_animal(params)
         erb :'/animals/edit'
     end
 

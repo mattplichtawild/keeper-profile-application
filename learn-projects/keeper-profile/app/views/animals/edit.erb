@@ -1,5 +1,4 @@
 <div class="container">
-  <header><img src="/images/corneal-small.png" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Update animal profile:</h2>
 
@@ -8,27 +7,17 @@
       After you have created your account, you can add profiles for animals you work with.</p>
     </div>
     <br>
-    <div class="form" id="edit_animal">
+    <div class="content" id="edit_animal">
         <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/<%= @animal.id %>">
             <input type="hidden" id="hidden" name="_method" value="patch">
             <label for="animal[name]">Animal Name:</label>
-            <input type="text" name="animal[name]" id="name" value="<%= @animal.id %>" required>
+            <input type="text" name="animal[name]" id="name" value="<%= @animal.name %>" required><br>
             <label for="animal[species]">Species:</label>
-            <input type="text" name="animal[species]" id="species" value="<%= @animal.species %>" required>
-            <label for="animal[bio]">Tell us about your animal:</label>
-            <textarea name="animal[bio]" id="bio" value="<%= @animal.bio %>"></textarea>  
+            <input type="text" name="animal[species]" id="species" value="<%= @animal.species %>" required><br>
+            <label for="animal[bio]">Tell us about your animal:</label><br>
+            <textarea name="animal[bio]" id="bio" rows="5" cols="60" value="<%= @animal.bio %>"></textarea><br>
             <input type="submit" value="Update Animal Profile">
         </form>
     </div>
-
-    <div class="sidebar">
-      <ul>
-        <li><b>How does it work?</b></li>
-        <li><b>Who is eligible?</b></li>
-        <li><b>Does it cost anything?</b></li>
-        <li><b>How many animals can I enroll?</b></li>
-      </ul>
-    </div>
-
   </div>
 </div>
