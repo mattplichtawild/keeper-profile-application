@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
   end
 
   def set_animal(params)
-    @animal = Animal.find(params[:animal_id])
+    @animal = Animal.find_by_id(params[:animal_id])
   end
 
   def set_user_and_animal(params) 

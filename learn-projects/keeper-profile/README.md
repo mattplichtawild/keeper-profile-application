@@ -14,8 +14,9 @@ For Zookeepers (users)
     x-create animal
     x-view animal profile
     x-view animal index page 
-    -edit animal
+    x-edit animal
     x-delete animal
+    x-authenticate users
     -display validation failures
 
 For Animals
