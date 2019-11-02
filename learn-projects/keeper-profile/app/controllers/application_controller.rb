@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/account" do
-    if session.include?(:id)
+    if logged_in?(session)
       redirect to "/account/#{session[:id]}"
     else
       redirect to "/account/new"

@@ -20,7 +20,7 @@ class ZookeeperController < ApplicationController
     get '/account/:id' do
         #display user account/profile page
         #check user has logged in
-        if session.include?(:id)
+        if logged_in?(session)
             set_user(session)
             erb :'/keepers/show'
         else
@@ -30,8 +30,12 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/edit' do
         #display edit form for user
-        set_user(session)
-        erb :'/keepers/edit'
+        if logged_in?(session)
+            set_user(session)
+            erb :'/keepers/edit'
+        else
+            redirect to "/"
+        end
     end
 
 end
