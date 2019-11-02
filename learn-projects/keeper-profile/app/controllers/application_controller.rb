@@ -13,6 +13,14 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get "/account" do
+    if session.include?(:id)
+      redirect to "/account/#{session[:id}"
+    else
+      redirect to "/"
+    end
+  end
+
   def set_user(session)
     @user = Zookeeper.find(session[:id])
   end

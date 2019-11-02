@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     get '/account/:id/delete' do
         Zookeeper.find_by_id(params[:id]).destroy
         session.clear
-        redirect to '/keepers/goodbye'
+        erb :'/keepers/goodbye'
     end
 
     get '/logout' do
