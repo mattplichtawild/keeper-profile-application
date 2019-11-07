@@ -1,6 +1,11 @@
 class ZookeeperController < ApplicationController
     #routes that handle user account are here
+    before_action :check_for_login
 
+    def check_for_login
+
+    end
+    
     get '/account/new' do
         #create new user
         if !logged_in?(session)
