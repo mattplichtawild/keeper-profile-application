@@ -12,8 +12,10 @@ class ZookeeperController < ApplicationController
 
     patch '/account/:id' do
         #edit account info with params sent from form
-        set_user(session)
-        @user.update(params[:user])
+        set_user(session) 
+        if params[:id] == session[:id]  
+            @user.update(params[:user])
+        end
         redirect to "/account/#{@user.id}"
     end
 
@@ -30,7 +32,7 @@ class ZookeeperController < ApplicationController
 
     get '/account/:id/edit' do
         #display edit form for user
-        if logged_in?(session)
+        if logged_in?(session) 
             set_user(session)
             erb :'/keepers/edit'
         else

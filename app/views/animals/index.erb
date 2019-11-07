@@ -1,6 +1,7 @@
 <% if logged_in?(session) %>
+<div class="animals" id="animal-container">
     <% @user.animals.each do |animal| %>
-        <div class="wrapper">
+        <div class="wrapper " id="animal-index">
             <div class="container">
                 <div class="col-md-8 col-md-offset-2">
                     <h2><a href="/account/<%= @user.id %>/animals/<%= animal.id %>"><%= animal.name %></h2></a>
@@ -22,6 +23,7 @@
             </div>
         </div>
     <% end %>
+</div>
     <a href="/account/<%= @user.id %>/animals/new">Create New Animal</a><br>
     <a href="/account/<%= @user.id %>" >Return to Account</a>
 <% else %>

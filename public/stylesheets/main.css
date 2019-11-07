@@ -81,6 +81,10 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  #animal-index {
+    
+  }
 }
 
 @media screen and (max-width: 600px) {

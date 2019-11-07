@@ -8,7 +8,7 @@
       </div>
       <br>
       <div class="content" id="create_animal">
-          <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals/new">
+          <form name="create_animal" method="POST" action="/account/<%= @user.id %>/animals">
               <label for="animal[name]">Animal Name:</label>
               <input type="text" name="animal[name]" id="name" required><br>
               <label for="animal[species]">Species:</label>
