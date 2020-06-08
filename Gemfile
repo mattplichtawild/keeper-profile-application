@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem "nokogiri", ">= 1.10.8"
+gem "rack", ">= 2.0.8"
 
 group :test do
   gem 'rspec'
