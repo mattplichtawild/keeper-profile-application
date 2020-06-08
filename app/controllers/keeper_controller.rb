@@ -1,8 +1,9 @@
 class ZookeeperController < ApplicationController
     #routes that handle user account are here
-    before_action :check_for_login
+    # before_action :check_for_login
 
     def check_for_login
+        # (2020.06.08) Did I just not finish writing this method?
 
     end
     
