@@ -11,9 +11,11 @@ to donate towards, with a progress bar showing how much is left to go (typically
 
 A new animal is then selected to be displayed along with the toy it will be receiving and the process begins again.
 
-## Dependencies
+## Install and run
 
-Run 'bundle install' to install required gems. To execute program and use application, run 'shotgun' and navigate to the address displayed. 
+Clone the repo, navigate to the new directory and run `bundle install`. 
+
+Start the development server with the terminal command `shotgun`, then navigate to the port listed.
 
 ## Authors
 
